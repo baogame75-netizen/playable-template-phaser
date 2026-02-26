@@ -2,7 +2,7 @@ name: Deploy Playable Ad to Pages
 
 on:
   push:
-    branches: ["main"] # 如果你的分支叫 master 請改為 master
+    branches: ["master"] 
 
 permissions:
   contents: read
