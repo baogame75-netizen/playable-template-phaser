@@ -1,8 +1,8 @@
-name: Deploy to GitHub Pages
+name: Deploy Playable Ad to Pages
 
 on:
   push:
-    branches: ["main"] # 如果你的主分支叫 master，請改為 master
+    branches: ["main"] # 如果你的分支叫 master 請改為 master
 
 permissions:
   contents: read
@@ -25,8 +25,9 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build
-        run: npm run build # 這會執行你的 Phaser 打包指令
+      - name: Build Playable
+        # 這會執行你 package.json 裡的 playable-scripts build
+        run: npm run build 
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -34,8 +35,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # 這裡要填寫你 npm run build 後產生的資料夾名稱
-          # Phaser 模板通常是 'dist' 或 'build'，請確認你的專案目錄
+          # 根據 playable-scripts 的慣例，輸出路徑是 dist
           path: './dist' 
 
       - name: Deploy to GitHub Pages
