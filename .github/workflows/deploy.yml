@@ -2,7 +2,10 @@ name: Deploy Playable Ad to Pages
 
 on:
   push:
-    branches: ["master"] 
+    branches: 
+      - master
+      - 'test/**'      # 支援所有 test/ 開頭的分支
+  workflow_dispatch:   # 增加手動執行按鈕
 
 permissions:
   contents: read
